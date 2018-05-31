@@ -1,48 +1,51 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
+import React, { Component } from "react";
+import { Platform, StyleSheet, View, ART } from "react-native";
+import EStyleSheet from "react-native-extended-stylesheet";
+import { HexGrid, Layout, Hexagon, Hex } from "./src/components/Hex_System";
 
-import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
-import EStyleSheet from 'react-native-extended-stylesheet';
+const { Text } = ART;
 
-import Hexagon from './src/components/Hexagon';
+EStyleSheet.build({});
 
-EStyleSheet.build({})
-
-type Props = {};
-export default class App extends Component<Props> {
+const styles = EStyleSheet.create({
+  $width: "100%",
+  viewContainer: {
+    width: "100%",
+    height: "90",
+    backgroundColor: "white"
+  }
+});
+export default class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Hexagon />
+      <View style={styles.viewContainer}>
+        <HexGrid width={1200} height={1200}>
+          <Layout size={{ x: 10, y: 10 }} flat={true} spacing={3.1} origin={{ x: 0, y: 0 }}>
+            <Hexagon q={0} r={0} s={0} />
+
+            <Hexagon q={0} r={-1} s={1} />
+            <Hexagon q={0} r={1} s={-1} />
+            <Hexagon q={1} r={-1} s={0}>
+              <Text font={'12px "Roboto"'} fill="black">
+                1, -1, 0
+              </Text>
+            </Hexagon>
+            <Hexagon q={1} r={0} s={-1}>
+              <Text font={'12px "Roboto"'} fill="black">
+                1, 0, -1
+              </Text>
+            </Hexagon>
+
+            <Hexagon q={-1} r={1} s={0}>
+              <Text font={'12px "Roboto"'} fill="black">
+                -1, 1, 0
+              </Text>
+            </Hexagon>
+            <Hexagon q={-1} r={0} s={1} />
+            <Hexagon q={-2} r={0} s={1} />
+          </Layout>
+        </HexGrid>
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
