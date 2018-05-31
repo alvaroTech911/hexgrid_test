@@ -20,7 +20,7 @@ export default class App extends Component {
     return (
       <View style={styles.viewContainer}>
         <HexGrid width={1200} height={1200}>
-          <Layout size={{ x: 10, y: 10 }} flat={true} spacing={3.1} origin={{ x: 0, y: 0 }}>
+          <Layout size={{ x: 10, y: 10 }} flat={true} spacing={3.1} origin={{ x: 90, y: 100 }}>
             <Hexagon q={0} r={0} s={0} />
 
             <Hexagon q={0} r={-1} s={1} />
