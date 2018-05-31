@@ -11,7 +11,7 @@ const styles = EStyleSheet.create({
   $width: "100%",
   viewContainer: {
     width: "100%",
-    height: "90",
+    height: "90%",
     backgroundColor: "white"
   }
 });
