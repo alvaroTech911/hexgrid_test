@@ -1,0 +1,3 @@
+rootProject.name = 'hex_test'
+
+include ':app'
