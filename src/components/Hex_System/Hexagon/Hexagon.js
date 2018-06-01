@@ -4,7 +4,7 @@ import { ART } from "react-native";
 import Hex from "../models/Hex";
 import HexUtils from "../HexUtils";
 
-const { Surface, Shape, Group, Text, Transform } = ART;
+const { Surface, Shape, Group, Text, Transform, Polygon } = ART;
 
 class Hexagon extends Component {
   static propTypes = {
@@ -44,13 +44,11 @@ class Hexagon extends Component {
     const { points } = this.context;
     const { hex, pixel } = this.state;
     const transform = new Transform().move(pixel.x, pixel.y);
-    const fillId = 'red';
+    const fillId = "red";
     return (
       <Group transform={transform}>
-        <Group >
-          <Shape d={points} fill={fillId} stroke={"white"} />
-          {this.props.children}
-        </Group>
+        <Shape d={`M${points}z`} fill={fillId} />
+        {this.props.children}
       </Group>
     );
   }

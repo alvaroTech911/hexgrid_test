@@ -11,7 +11,11 @@ class HexGrid extends Component {
 
   render() {
     const { width, height, viewBox } = this.props;
-    return <Surface height={height} width={width}>{this.props.children}</Surface>;
+    return (
+      <Surface height={height} width={width}>
+        {this.props.children}
+      </Surface>
+    );
   }
 }
 export default HexGrid;
