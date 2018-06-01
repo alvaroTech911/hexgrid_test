@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { ART } from "react-native";
+import { ART, View, TouchableHighlight } from "react-native";
 import Hex from "../models/Hex";
 import HexUtils from "../HexUtils";
 
@@ -40,14 +40,13 @@ class Hexagon extends Component {
   }
 
   render() {
-    const { fill, cellStyle, className } = this.props;
+    const { fill, border, borderWidth } = this.props;
     const { points } = this.context;
     const { hex, pixel } = this.state;
     const transform = new Transform().move(pixel.x, pixel.y);
-    const fillId = "red";
     return (
       <Group transform={transform}>
-        <Shape d={`M${points}z`} fill={fillId} />
+        <Shape d={`M${points}z`} fill={fill} stroke={border} strokeWidth={borderWidth} />
         {this.props.children}
       </Group>
     );
